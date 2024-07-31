@@ -33,7 +33,38 @@
 
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
+# 1. пополнение счета
+def upload_account():
+    amount = float(input('Введите сумму для пополнения счёта'))
+    return amount
 
+
+# 2. покупка
+def get_goods(value, items):
+    price = float(input('Введите сумму покупки'))
+    if price > value:
+        print('Недостаточно денег на счёте.')
+        return value
+    name_of_good = input('Введите название покупки')
+    items.append((name_of_good, price))
+    return value - price
+
+
+# 3. история покупок
+def print_history(history):
+    if history:
+        print('История покупок')
+        number, sm = 0, 0
+        for good, price in history:
+            number += 1
+            sm += price
+            print(f'{number}. {good}: {price}')
+        print('-' * 20)
+        print('Итого:', sm)
+
+
+account = 0
+history = []
 while True:
     print('1. пополнение счета')
     print('2. покупка')
@@ -42,11 +73,11 @@ while True:
 
     choice = input('Выберите пункт меню')
     if choice == '1':
-        pass
+        account += upload_account()
     elif choice == '2':
-        pass
+        account = get_goods(account, history)
     elif choice == '3':
-        pass
+        print_history(history)
     elif choice == '4':
         break
     else:
