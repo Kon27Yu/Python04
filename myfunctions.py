@@ -45,29 +45,6 @@ print(separator('-', 10) == '----------')  # True
 print(separator('#', 5) == '#####')  # True
 
 
-def hello_world():
-    """
-    Функция печатает Hello World в формате:
-    **********
-
-    Hello World!
-
-    ##########
-    :return: None
-    """
-    print('Hello World!')
-
-
-'''
-**********
-
-Hello World!
-
-##########
-'''
-hello_world()
-
-
 def hello_who(who='World'):
     """
     Функция печатает приветствие в красивом формате
@@ -79,7 +56,36 @@ def hello_who(who='World'):
     :param who: кого мы приветствуем, по умолчанию World
     :return: None
     """
+    separator('*', 10)
+    print()
     print(f'Hello {who}!')
+    print()
+    separator('#', 10)
+
+
+
+
+def hello_world():
+    """
+    Функция печатает Hello World в формате:
+    **********
+
+    Hello World!
+
+    ##########
+    :return: None
+    """
+    hello_who()
+
+
+'''
+**********
+
+Hello World!
+
+##########
+'''
+hello_world()
 
 
 '''
@@ -135,7 +141,6 @@ def print_key_val(**kwargs):
     """
     for key, val in kwargs.items():
         print(f'{name} --> {key}')
-    
     
 
 """
